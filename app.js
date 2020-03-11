@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 app.get("/", (req, res) => {
   console.log("Responding to root route")
-  res.sendFile(__dirname+'/index.html')
+  res.sendFile(__dirname+'/public/client/index.html')
 })
 
 app.listen(port, () => {
