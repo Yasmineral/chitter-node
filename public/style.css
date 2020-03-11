@@ -1,3 +1,8 @@
-* {
-  background: red;
+.my-title {
+  text-align: center;
+}
+
+.chitter-form {
+  width: 50%;
+  margin: 0 auto;
 }
