@@ -1,3 +1,3 @@
 # chitter-node
 
-Using vanilla JS.
+Using vanilla JS / Express / Node.
