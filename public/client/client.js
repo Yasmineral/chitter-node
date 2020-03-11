@@ -1,4 +1,5 @@
 const form = document.querySelector('form')
+const API_URL = 'http://localhost:3003/'
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -11,5 +12,11 @@ form.addEventListener('submit', (e) => {
     content
   }
 
-  console.log(tweet)
+  fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify(tweet),
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
 })
