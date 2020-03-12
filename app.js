@@ -1,20 +1,14 @@
 const express = require('express');
-const port = 3003;
+const PORT = process.env.PORT || 3003;
 const app = express();
 const path = require('path');
 const router = express.Router();
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.listen(port, () => {
+app.use('/', require('./routes/home'))
+
+app.listen(PORT, () => {
   console.log("Server is listening on 3003...")
 })
 
-app.route('/')
-  .get((req, res) => {
-    console.log("Responding to root route")
-    res.sendFile(__dirname+'/public/client/index.html')
-  })
-  .post((req, res) => {
-    console.log(req.body)
-  })
