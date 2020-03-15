@@ -8,7 +8,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  console.log(req.body)
+  const tweet = {
+    name: req.body.name.toString(),
+    content: req.body.content.toString()
+  };
+
+  console.log(tweet)
 });
   
 
