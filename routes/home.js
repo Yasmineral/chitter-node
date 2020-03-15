@@ -3,11 +3,12 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log("Responding to root route")
-  res.sendFile('/client/index.html')
+  res.sendFile('/index.html')
 })
 
 router.post('/', (req, res) => {
   console.log(req.body)
 })
+  
 
 module.exports = router 

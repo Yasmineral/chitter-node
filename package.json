@@ -6,11 +6,12 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
-
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "mysql": "^2.18.1"
   }
 }
