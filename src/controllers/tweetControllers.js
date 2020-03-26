@@ -1,3 +1,4 @@
+// const Tweet = require('../models/tweet');
 
 const createTweet = (req, res) => {
   const tweet = {
