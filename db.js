@@ -9,12 +9,5 @@ const dbConnect = () => {
   })
 }
 
-
-// function connectDB() {
-//   connection.connect(function(err) {
-//   if (err) throw err
-//     console.log("DB connected!")
-//   })
-// }
-
 exports.dbConnect = dbConnect;
+
