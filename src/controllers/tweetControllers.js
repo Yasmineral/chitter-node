@@ -1,14 +1,5 @@
 const mysql = require('mysql');
-// const dbConnect = require('../../db');
-
-function getConnection() {
-  return mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-  })
-}
+const db = require('../../db.js');
 
 const createTweet = (req, res) => {
     let name = req.body.name.toString()
@@ -17,7 +8,7 @@ const createTweet = (req, res) => {
     console.log(name + ' ' + content)
 
     const queryString = "INSERT INTO tweets (name, tweet) VALUES (?, ?)"
-    getConnection().query(queryString, [name, content], (err, results, fields) => {
+    db.dbConnect().query(queryString, [name, content], (err, results, fields) => {
       if (err) {
           console.log("Failed to save tweet" + err)
           res.sendStatus(500)
