@@ -1,13 +1,18 @@
-const mysql = require('mysql');
+require('dotenv').config();
+const Sequelize = require('sequelize')
+const db = new Sequelize('chitter', 'postgres', process.env.DB_PASS, {
+  host: 'localhost',
+  dialect: 'postgres',
+  operatorsAliases: false,
 
-const dbConnect = () => {
-  return mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-  })
-}
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+})
 
-exports.dbConnect = dbConnect;
-
+db.authenticate()
+  .then(() => console.log('Database connected...'))
+  .catch(err => console.log('Error: ' + err))

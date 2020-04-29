@@ -1,13 +1,14 @@
 const express = require('express');
-const PORT = process.env.PORT || 3003;
-const app = express();
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 const path = require('path');
-const router = express.Router();
-require('dotenv').config();
+const app = express();
 
-app.set('view engine', 'ejs')
+const PORT = process.env.PORT || 3003;
+const router = express.Router();
+
 app.get('/', (req, res) => {
-  res.render('login');
+  res.send('login');
 })
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -19,3 +20,4 @@ app.listen(PORT, () => {
   console.log("Server is listening on 3003...")
 })
 
+ 
