@@ -13,6 +13,10 @@ router.get('/', (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.get('/test', (req, res) => {
+  res.render('home')
+})
+
 router.post('/', tweetControllers.createTweet)
 
 module.exports = router 
