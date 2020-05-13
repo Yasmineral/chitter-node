@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 module.exports = new Sequelize('chitter', 'postgres', process.env.DB_PASS, {
   host: 'localhost',
   dialect: 'postgres',
-  operatorsAliases: false,
+  operatorsAliases: 0,
   define: {
     timestamps: false
   },

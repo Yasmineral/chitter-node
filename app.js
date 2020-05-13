@@ -12,7 +12,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-  res.send('login');
+  res.render('home', { layout: 'login' });
 })
 
 app.use(express.static(path.join(__dirname, 'public')));
