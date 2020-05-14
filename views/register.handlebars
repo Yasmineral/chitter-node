@@ -3,6 +3,14 @@
       <h3 class="my-title">New round here? Sign up!</h3>
       </div>
   <main>
+    {{#each errors}}
+      {{#each this}}
+        {{#is name "Invalid value"}}
+        {{else}}
+          <p>{{this.msg}}</p>
+        {{/is}}
+      {{/each}}
+    {{/each}}
     <form class="chitter-form" action="/register" method="POST">
       <label for="name">Name</label>
       <input class="u-full-width" type="text" id="name" name="name">
@@ -15,3 +23,4 @@
       <button class="button-primary">Post</button>
     </form>
   </main> 
+

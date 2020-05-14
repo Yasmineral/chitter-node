@@ -11,8 +11,6 @@ router.post('/', [
     .isLength({ min: 1 })
     .withMessage('Name is required'),
   check('email')
-    .isLength({ min:1 })
-    .withMessage('Email is required')
     .isEmail().withMessage('Please provide a valid email address'),
   check('password1')
     .isLength({ min: 4 })
@@ -20,15 +18,23 @@ router.post('/', [
     .custom((value, {req}) => {
       if (value !== req.body.password2) {
         throw new Error('Passwords do not match');
+
       } else {
         return value
       }
     })    
 ], (req, res) => {
   let errors = validationResult(req)
+  let { name, email } = req.body
   if (!errors.isEmpty()) {
-    console.log(errors.mapped())
-    console.log("errors")
+    console.log(errors)
+    res.render('register', {
+      errors,
+      name,
+      email
+    })
+  } else {
+    console.log('Send to database')
   }
 })
 
