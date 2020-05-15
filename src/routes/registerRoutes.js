@@ -12,22 +12,14 @@ router.post('/', [
     .withMessage('Name is required'),
   check('email')
     .isEmail().withMessage('Please provide a valid email address'),
-  check('password1')
+  check('password')
     .isLength({ min: 4 })
     .withMessage('Password must be more than 4 characters')
-    .custom((value, {req}) => {
-      if (value !== req.body.password2) {
-        throw new Error('Passwords do not match');
-
-      } else {
-        return value
-      }
-    })    
 ], (req, res) => {
   let errors = validationResult(req)
   let { name, email } = req.body
   if (!errors.isEmpty()) {
-    console.log(errors)
+    console.log(errors.mapped())
     res.render('register', {
       errors,
       name,

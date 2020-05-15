@@ -1,9 +1,10 @@
-.my-title {
-  display: inline-block;
-}
 
 .my-title-container {
   text-align: center;
+}
+
+.my-title {
+  display: inline-block;
 }
 
 .chitter-form, .loading {
@@ -53,6 +54,13 @@ button:hover {
   background-color: rgba(0,136,169,0.8);
 }
 
-.error {
+.errors {
+  text-align: center;
   color: red;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  margin: 0;
+  padding: 0;
 }

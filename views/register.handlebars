@@ -3,23 +3,20 @@
       <h3 class="my-title">New round here? Sign up!</h3>
       </div>
   <main>
+    <div class="errors">
     {{#each errors}}
       {{#each this}}
-        {{#is name "Invalid value"}}
-        {{else}}
-          <p>{{this.msg}}</p>
-        {{/is}}
+        <p class="error-message">{{this.msg}}</p>
       {{/each}}
     {{/each}}
+    </div>
     <form class="chitter-form" action="/register" method="POST">
       <label for="name">Name</label>
-      <input class="u-full-width" type="text" id="name" name="name">
+      <input class="u-full-width" type="text" id="name" name="name" value={{name}}>
       <label for="content">Email</label>
-      <input class="u-full-width" type="text" id="email" name="email">
+      <input class="u-full-width" type="text" id="email" name="email" value={{email}}>
       <label for="content">Password</label>
-      <input class="u-full-width" type="text" id="password1" name="password1">
-      <label for="content">Confirm password</label>
-      <input class="u-full-width" type="text" id="password2" name="password2">
+      <input class="u-full-width" type="text" id="password" name="password">
       <button class="button-primary">Post</button>
     </form>
   </main> 
