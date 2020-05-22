@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded( {extended: false }));
 app.use('/tweet', require('./src/routes/tweetRoutes'))
 app.use('/register', require('./src/routes/registerRoutes'))
+app.use('/home', require('./src/routes/homeRoutes'))
 
 app.listen(PORT, () => {
   console.log("Server is listening on 3003...")
