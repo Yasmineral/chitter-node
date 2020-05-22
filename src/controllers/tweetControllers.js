@@ -1,4 +1,3 @@
-const mysql = require('mysql');
 const db = require('../../db.js');
 
 const createTweet = (req, res) => {
