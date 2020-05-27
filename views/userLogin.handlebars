@@ -1,6 +1,6 @@
 
     <div class="my-title-container">
-      <h3 class="my-title">New round here? Sign up!</h3>
+      <h3 class="my-title">Welcome back!</h3>
       </div>
   <main>
     <div class="errors">
@@ -11,13 +11,14 @@
     {{/each}}
     </div>
     <form class="chitter-form" action="/register" method="POST">
-      <label for="name">Name</label>
-      <input class="u-full-width" type="text" id="name" name="name" value={{name}}>
       <label for="content">Email</label>
       <input class="u-full-width" type="text" id="email" name="email" value={{email}}>
       <label for="content">Password</label>
       <input class="u-full-width" type="text" id="password" name="password">
       <button class="button-primary">Submit</button>
     </form>
+    <div class="my-title-container">
+      <p class="need-account">Need an account? Sign up <a href="/register" class="need-account-link">here</a></p>
+      </div>
   </main> 
 

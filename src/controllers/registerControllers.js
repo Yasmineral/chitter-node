@@ -1,7 +1,7 @@
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User')
 
-const createUser = (req,res) => {
+const createUser = (req, res) => {
    
     let errors = validationResult(req)
     let { name, email, password } = req.body

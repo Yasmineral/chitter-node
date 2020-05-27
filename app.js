@@ -17,6 +17,10 @@ app.use(bodyParser.urlencoded( {extended: false }));
 app.use('/tweet', require('./src/routes/tweetRoutes'))
 app.use('/register', require('./src/routes/registerRoutes'))
 app.use('/home', require('./src/routes/homeRoutes'))
+app.use('/login', require('./src/routes/loginRoutes'))
+app.get('/', (req, res) => {
+  res.render('register', { layout: 'login' });
+})
 
 app.listen(PORT, () => {
   console.log("Server is listening on 3003...")
