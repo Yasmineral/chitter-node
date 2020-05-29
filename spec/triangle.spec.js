@@ -1,4 +1,4 @@
-import { Triangle } from '../triangle';
+import { Triangle } from './triangle';
 
 describe('Triangle', () => {
   describe('equilateral triangle', () => {
