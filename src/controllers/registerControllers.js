@@ -1,5 +1,5 @@
 const { check, validationResult } = require('express-validator');
-const User = require('../models/User')
+const models = require('../../database/models')
 
 const createUser = (req, res) => {
    
@@ -13,10 +13,10 @@ const createUser = (req, res) => {
         email
       })
     } else {
-      User.create({
-        user_name: name,
-        user_email: email,
-        user_pass: password
+      models.User.create({
+        name: name,
+        email: email,
+        password: password
       })
       .then(user => res.redirect('/home'))
       .catch(err => console.log(err))

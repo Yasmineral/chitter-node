@@ -1,5 +1,3 @@
-const db = require('../../db.js');
-
 const createTweet = (req, res) => {
     let name = req.body.name.toString()
     let content = req.body.content.toString()
