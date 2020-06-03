@@ -4,9 +4,11 @@
   "description": "",
   "main": "register.handlebars",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "jest",
+    "start-dev": "nodemon app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
     "lint": "eslint .",
     "lint-test": "eslint . && jest --no-cache ./* "
   },
@@ -36,6 +38,7 @@
     "@types/node": "^13.9.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^26.0.1",
