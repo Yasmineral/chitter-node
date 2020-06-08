@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 require('dotenv').config();
-const PORT = process.env.PORT || 3003;
+
 const router = express.Router();
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -21,6 +21,5 @@ app.get('/', (req, res) => {
   res.render('register', { layout: 'login' });
 })
 
-app.listen(PORT, () => {
-  console.log("Server is listening on 3003...")
-})
+module.exports = app
+

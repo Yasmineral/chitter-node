@@ -7,7 +7,7 @@ const createUser = (req, res) => {
     let { name, email, password } = req.body
     if (!errors.isEmpty()) {
       console.log(errors.mapped())
-      res.render('register', {
+      res.status(401).render('register', {
         errors,
         name,
         email

@@ -4,11 +4,8 @@
   "description": "",
   "main": "register.handlebars",
   "scripts": {
-    "start-dev": "nodemon app.js",
-    "migrate": "npx sequelize-cli db:migrate",
-    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
-    "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
+    "start-dev": "nodemon server.js",
+    "test": "cross-env NODE_ENV=test jest",
     "lint": "eslint .",
     "lint-test": "eslint . && jest --no-cache ./* "
   },
