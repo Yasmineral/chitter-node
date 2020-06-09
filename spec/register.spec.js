@@ -4,7 +4,8 @@ const request = supertest(app)
 const models = require('../database/models')
 const db = require('../database/models/index')
 
-afterAll(done => {
+afterAll(async done => {
+  await models.User.destroy({ truncate : true, cascade: false })
   db.sequelize.close();
   done();
 })
@@ -27,14 +28,14 @@ describe('Register', () => {
     .expect(401);
     done();
   })
-it('saves user to database when valid credentials are posted', async done => {
-  const req = {name: 'Yas Kemp', email: 'yas@test.com', password: 'testPassword'};
-  await request.post('/register').send(req)
-  const user = await models.User.findOne({ 
-    where: {email: 'yas@test.com'}
-  });
-  expect(user.name).toBeTruthy();
-  expect(user.email).toBeTruthy();
-  done();
-})
+  it('saves user to database when valid credentials are posted', async done => {
+    const req = {name: 'Yas Kemp', email: 'yas@test.com', password: 'testPassword'};
+    await request.post('/register').send(req)
+    const user = await models.User.findOne({ 
+      where: {email: 'yas@test.com'}
+    });
+    expect(user.name).toBeTruthy();
+    expect(user.email).toBeTruthy();
+    done();
+  })
 })
