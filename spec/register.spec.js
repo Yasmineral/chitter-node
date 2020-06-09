@@ -30,7 +30,9 @@ describe('Register', () => {
 it('saves user to database when valid credentials are posted', async done => {
   const req = {name: 'Yas Kemp', email: 'yas@test.com', password: 'testPassword'};
   await request.post('/register').send(req)
-  const user = await models.User.findOne({ email: 'yas@test.com'});
+  const user = await models.User.findOne({ 
+    where: {email: 'yas@test.com'}
+  });
   expect(user.name).toBeTruthy();
   expect(user.email).toBeTruthy();
   done();
