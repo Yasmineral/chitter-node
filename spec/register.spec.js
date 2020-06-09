@@ -2,7 +2,12 @@ const app = require('../app')
 const supertest = require('supertest')
 const request = supertest(app)
 const models = require('../database/models')
+const db = require('../database/models/index')
 
+afterAll(done => {
+  db.sequelize.close();
+  done();
+})
 
 describe('Register', () => {
   it('gets the register endpoint', async done => {
